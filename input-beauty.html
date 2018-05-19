@@ -4,31 +4,25 @@
   <meta charset="utf-8">
   <title>abs-center</title>
   <style type="text/css">
+    *{
+      background: rgba(0,0,0,0.1);
+    }
+
     h1 input{
       vertical-align: 0.36em;
     }
 
     p input{
-      display: none;  
-    }
-
-    input + label{
-      display: inline-block;
-      width: 15px;
-      height: 15px;
-      border: 2px solid;
+      font: inherit;
+      margin: -5px auto;
+      padding: 5px;
+      border: 1px solid;
       border-radius: 3px;
-      line-height: 15px;
-      text-indent: -999px;
-    }
-
-    input:checked + label{
-      text-indent: 0;
     }
   </style>
 </head>
 <body>
   <h1>aaax<input type="checkbox" name="">bbb</h1>
-  <p>aaa <input type="checkbox" name="" id="gender"><label for="gender">✓</label> bbb</p>
+  <p>aaa <input type="text" name=""> bbb</p>
 </body>
 </html>
