@@ -4,45 +4,51 @@
 	<meta charset="utf-8">
 	<title>JS Bin</title>
 	<style type="text/css">
+    *{background:rgba(0,0,0,0.1);}
     html,body{
       height: 100%;
       width: 100%;
     }
 
     body{
-      margin:0px;
-      
+      margin:0;
+      font-size: 0;
+    }
+
+    body *{
+      font-size: 16px;
     }
 
     *{
-    	box-sizing: border-box;
+      box-sizing: border-box;
     }
 
-    #header{
-      width: 100%;
+    header,aside,main{
+      display: inline-block;
+    }
+
+    header{
       height: 100px;
-      border-bottom: 2px solid;
+      width: 100%;
+      background: olive;
     }
 
+    aside{
+      height: calc(100% - 100px);
+      width: 200px;
+      background: pink;
+    }
 
-    #left{
-      width: 220px;
+    main{
       height: calc(100% - 100px);
-      border-right: 2px solid;
-    }
-    
-    #main-content{
-      width: calc(100% - 220px);
-      height: calc(100% - 100px);
-      margin-left: 220px;
-      margin-top:calc(100px - 100vh);
-    }
+      width: calc(100% - 200px);
+    }  
 
 	</style>
 </head>
 <body>
-	<div id="header"></div>
-  <div id="left"></div>
-  <div id="main-content"></div>
+	<header>header</header>
+  <aside>aside</aside>
+  <main>main</main>
 </body>
 </html>
