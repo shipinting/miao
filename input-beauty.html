@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>abs-center</title>
+  <style type="text/css">
+    *{
+      background-color: rgba(0,0,0,0.1);
+    }
+
+    h1 input{
+      vertical-align: 0.36em;
+    }
+
+    p input{
+      display: none;  
+    }
+
+    input + label{
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 2px solid;
+      border-radius: 3px;
+      line-height: 15px;
+      text-indent: -999px;
+    }
+    
+    input:checked + label{
+      text-indent: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>aaax<input type="checkbox" name="">bbb</h1>
+  <p>aaa<input type="checkbox" name="" id="gender"><label for="gender">✓</label>bbb</p>
+</body>
+</html>
