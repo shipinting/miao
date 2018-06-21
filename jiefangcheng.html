@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>解方程</title>
+  <script type="text/javascript">
+    var a = Number(prompt('a:'))
+    var b = Number(prompt('b:'))
+    var c = Number(prompt('c:'))
+
+    var delta = b * b - 4 * a * c
+    
+    if (delta > 0) {
+      var s_delta = Math.sqrt(delta)
+      var x1 = (-b + s_delta) / (2 * a)
+      var x2 = (-b - s_delta) / (2 * a)
+      alert('x1 = '+ x1)
+      alert('x2 = '+ x2)
+    }
+    else if (delta == 0) {
+      var s_delta = Math.sqrt(delta)
+      var x = (-b) / (2 * a)      
+      alert('x = '+ x)
+    }
+        else{
+        var s_delta = Math.sqrt(-delta)
+        var d = (-b) / (2 * a)
+        var x = (s_delta) / (2 * a)
+        alert('x1 = '+ d + '+' + x + '* i')
+        alert('x2 = '+ d + '-' + x + '* i')        
+        }
+
+    var a1 = Number(prompt('a1:'))
+    var b1 = Number(prompt('b1:'))
+    var c1 = Number(prompt('c1:'))
+    var a2 = Number(prompt('a2:'))
+    var b2 = Number(prompt('b2:'))
+    var c2 = Number(prompt('c2:'))
+
+    if ((a1 / a2) != (b1 / b2 ) ) {
+        var x3 = (c1 * b2 - b1 * c2) / (a1 * b2 - b1 * a2)
+        var y3 = (c1 * a2 - a1 * c2) / (b1 * a2 - a1 * b2)        
+        alert('x3 = ' + x3)
+        alert('y3 = ' + y3)
+    }
+    else if ((a1 / a2 == b1 / b2 ) && (a1 / a2 == c1 / c2)) {
+        alert('无唯一解')
+    }
+    else{
+      alert('无解')
+    }
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
