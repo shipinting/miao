@@ -215,6 +215,287 @@
     }
     console.log(power)     
   </script>
+
+  <script id="ch0104/01" type="判断数正负">
+    var n = Number(prompt('请输入一个整数'))
+    if (n > 0) {
+      console.log('positive')
+    }else if(n === 0){
+      console.log('zero')
+    }else {
+      console.log('negative')
+    }
+  </script>
+  <script id="ch0104/02" type="输出绝对值">
+    var f = Number(prompt('请输入一个浮点数'))
+    var a = (Math.abs(f)).toFixed(2)
+    console.log(a)
+  </script>
+
+  <script id="ch0104/03" type="奇偶数判断">
+    var n = Number(prompt('请输入一个大于0的正整数'))
+    if (n % 2 === 0) {
+      console.log('even')
+    }else{
+      console.log('odd')
+    }
+  </script>
+  <script id="ch0104/04" type="奇偶ASCII值判断">
+    var n = prompt('请输入一个大于0的正整数')
+    var a = n.charCodeAt()
+    if (a % 2 === 0) {
+      console.log('NO')      
+    }else{
+      console.log('YES')
+    }
+  </script>
+
+  <script id="ch0104/05" type="整数大小比较">
+    var x = Number(prompt('请输入第一个整数'))
+    var y = Number(prompt('请输入第二个整数'))
+    if (x > y) {
+      console.log('>')
+    }else if (x === y) {
+      console.log('=')
+    }else {
+      console.log('<')
+    }
+  </script>
+
+  <script id="ch0104/06" type="判断是否为两位数">
+    var n = Number(prompt('请输入一个不超过1000的正整数'))
+    if ((n >= 10) && (n <=99)) {
+      console.log('1')
+    }else{
+      console.log('0')
+    }
+  </script>
+
+  <script id="ch0104/07" type="收集瓶盖赢大奖">
+    var a = Number(prompt('请输入印有“幸运”的瓶盖总数'))
+    var b = Number(prompt('请输入印有“鼓励”的瓶盖总数'))
+    if ((a >= 10) || (b >=20)) {
+      console.log('1')
+    }else{
+      console.log('0')
+    }
+  </script>
+  <script id="ch0104/08" type="判断一个数能否同时被3和5整除">
+    var n = Number(prompt('请输入一个整数'))
+    if (n % 15 === 0) {
+      console.log('YES')
+    }else{
+      console.log('NO')
+    }
+  </script>
+  <script id="ch0104/09" type="判断能否被3，5，7整除">
+    var n = Number(prompt('请输入一个整数'))
+    if (n % 105 === 0){
+      console.log('3 5 7')
+    }else if(n % 15 === 0){
+      console.log('3 5')
+    }else if(n % 21 === 0){
+      console.log('3 7')
+    }else if(n % 35 === 0){
+      console.log('5 7')
+    }else if(n % 3 === 0){
+      console.log('3')
+    }else if(n % 5 === 0){
+      console.log('5')
+    }else if(n % 7 === 0){
+      console.log('7')
+    }else {
+      console.log('n')
+    }
+  </script>
+  <script id="ch0104/10" type="有一门课不及格的学生">
+    var a = Number(prompt('请输入考生的语文成绩'))
+    var b = Number(prompt('请输入考生的数学成绩'))
+    if ((a < 60 && b >=60) || (a >= 60 && b <60)){
+      console.log('1')
+    }else{
+      console.log('0')
+    }
+  </script>
+
+  <script id="ch0104/11" type="晶晶赴约会">
+    var n = Number(prompt('请输入1到7中间的一个数代表贝贝邀请晶晶的日期'))
+    switch(n){
+      case 1:
+      case 3:
+      case 5:
+      console.log('NO') 
+      break;
+      default: 
+      console.log('YES') 
+      break;      
+    }
+  </script>
+
+  <script id="ch0104/12" type="骑车与走路">
+    var s = Number(prompt('请输入需要行走的距离，单位为米'))
+    var bUp = 27
+    var bDown = 23
+    var bSpeed = 3
+    var wSpeed = 1.2
+    var bTimeTotal = bUp + bDown + s / bSpeed
+    var wTime = s / wSpeed
+    if (bTimeTotal < wTime) {
+      console.log('Bike')
+    }else if (bTimeTotal === wTime) {
+      console.log('All')
+    }else {
+      console.log('Walk')
+    }
+  </script>
+
+  <script id="ch0104/13" type="分段函数">
+    var x = Number(prompt('请输入一个浮点数（输入的数需要大于等于0且小于20）'))
+    var y = 0
+    if ((x >= 0) && (x < 5)) {
+      y = (-x + 2.5).toFixed(3)
+      console.log(y)
+    }else if ((x >= 5) && (x < 10)) {
+      y = (2 - 1.5 * (x - 3) * (x - 3)).toFixed(3)
+      console.log(y)
+    }else if ((x >= 10) && (x < 20)) {
+      y = (x / 2 - 1.5).toFixed(3)
+      console.log(y)
+    }else{
+      console.log('输入的数需要大于等于0且小于20，请刷新页面后重新输入')
+    }
+  </script>
+  <script id="ch0104/14" type="计算邮资">
+    var w = Number(prompt('请输入一个整数表示重量（单位为克）'))
+    var m = prompt('请输入一个字符表示是否加急，y说明加急；n说明不加急）')
+    var a = m.charCodeAt()
+    var postage = 0
+    if (w <= 1000) {
+      postage = 8
+    }else{
+      postage = 8 + Math.ceil((w - 1000) / 500) * 4
+    }
+
+    if (a === 121) {
+      postage += 5
+    }
+    console.log(postage)
+  </script>
+
+  <script id="ch0104/15" type="最大数输出" >
+    var a = Number(prompt('请输入第一个整数的值'))
+    var b = Number(prompt('请输入第二个整数的值'))
+    var c = Number(prompt('请输入第三个整数的值'))
+    var max = a
+    if (b > max) {
+      max = b
+    } 
+    if (c > max) {
+      max = c
+    } 
+    console.log(max)  
+  </script>
+
+  <script id="ch0104/16" type="三角形判断">
+    var a = Number(prompt('请输入第一条线段的长度值'))
+    var b = Number(prompt('请输入第二条线段的长度值'))
+    var c = Number(prompt('请输入第三条线段的长度值'))
+    if ((a > 0) && (b > 0) && (c > 0)) {
+      if ((a + b > c) && (a + c > b) && (b + c > a)) {
+        console.log('yes')
+      }else{
+        console.log('no')
+      }
+    }else {
+      console.log('no')
+    }
+  </script>
+
+  <script id="ch0104/17" type="计算闰年">
+    var y = Number(prompt('请输入年份,年份需要在0到3000之间'))
+    if (((y % 4 === 0) && (y % 100 !== 0)) || (y % 400 === 0)) {
+      console.log('Y')
+    }else{
+      console.log('N')
+    }
+  </script>
+
+  <script id="ch0104/18" type="点和正方形的关系">
+    var x = Number(prompt('请输入点的x轴坐标'))
+    var y = Number(prompt('请输入点的y轴坐标'))
+    if (((x >= -1) && (x <= 1)) && ((y >= -1) && (y <= 1))) {
+      console.log('yes')
+    }else {
+      console.log('no')
+    }
+  </script>
+
+  <script id="ch0104/19" type="简单计算器">
+    var x = Number(prompt('请输入第一个数的值'))
+    var y = Number(prompt('请输入第二个数的值'))
+    var p = prompt('请输入操作符类型，用+ - * /表示')
+    var a = p.charCodeAt()
+    switch(a){
+      case 43:
+      console.log(x + y)
+      break;
+      case 45:
+      console.log(x - y)
+      break;
+      case 42:
+      console.log(x * y)
+      break;
+      case 47:
+      if (y === 0) {
+        console.log('Divided by zero!')
+      }else{
+        console.log(x / y)
+      }      
+      break;
+      default:
+      console.log('Invalid operator!')
+      break;
+    } 
+  </script>
+
+  <script id="ch0104/20" type="求一元二次方程的根">
+    var a = Number(prompt('a:'))
+    var b = Number(prompt('b:'))
+    var c = Number(prompt('c:'))
+
+    var delta = b * b - 4 * a * c
+    if (delta > 0) {
+      var s_delta = Math.sqrt(delta)
+      var x1 = (-b + s_delta) / (2 * a)      
+      var x2 = (-b - s_delta) / (2 * a)      
+      if (x1 >= x2) {
+        console.log('x1='+ x1.toFixed(5) + ';' + 'x2='+ x2.toFixed(5))
+      }else {
+        console.log('x1 ='+ x2.toFixed(5) + ';' + 'x2 ='+ x1.toFixed(5))
+        }            
+    }else if (delta == 0) {
+      var s_delta = Math.sqrt(delta)
+      var x = ((-b) / (2 * a)).toFixed(5)      
+      console.log('x1=x2=' + x)
+    }else{
+        var s_delta = Math.sqrt(-delta)
+        var d = ((-b) / (2 * a)).toFixed(5)
+        var x = (Math.abs((s_delta) / (2 * a))).toFixed(5)
+        console.log('x1 ='+ d + '+' + x + 'i' + ';' + 'x2 ='+ d + '-' + x + 'i')      
+      }        
+  </script>
+  <script id="ch0104/21" type="苹果和虫子">
+    var n = Number(prompt('请输入刚买来时箱子里面苹果的总个数'))
+    var x = Number(prompt('请输入虫子吃掉一个苹果需要的小时数'))
+    var y = Number(prompt('请输入虫子总共吃苹果的小时数'))
+    if (y > (n * x)) {
+      console.log('苹果已被全部吃完')
+    }else{
+      var eaten = Math.ceil((y / x))
+      var apple = n - eaten
+      console.log(apple)
+      }    
+  </script>
 </head>
 <body>
 
