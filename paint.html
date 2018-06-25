@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }    
+  </style>
+</head>
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var cvs = document.querySelector('canvas')
+  var ctx = cvs.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+
+</script>
+<script>
+  // YOUR CODE GOES HERE
+  // 实线
+  var x = 0 
+  var y = 0
+  for (x = 0; x < 400; x++) {
+    dot(x,10,'black')
+  }  
+  //虚线1
+  for (x = 0; x < 400; x += 2) {
+    dot(x,20,'black')
+  }
+  //虚线2
+  for (x = 0; x < 400; x += 3) {
+    dot(x,30,'black')
+  }
+  //虚线3
+  for (x = 0; x < 400; x += 5) {
+    dot(x,40,'black')
+  }
+
+  //对角线
+  for (x = 0; x < 400; x++) {
+    y = 0.75 * x
+    dot(x,y,'black')
+  }
+
+  for (x = 0; x < 400; x++) {
+    y = x
+    dot(x,y,'black')
+  }
+
+  //圆形1
+  /*  
+  var x1 = 100
+  var y1 = 100
+  var r = 50
+  a = x1 - r 
+  d = x1 + 2 * r   
+  for(x = a; x < d; x++) {    
+    y = Math.sqrt(r * r - (x - x1) * (x - x1)) + y1
+    var yUp = 2 * y1 - y
+    dot(x,y,'black')
+    dot(x,yUp,'black')  
+  }
+  */
+ //圆形2
+ var r = 50
+ for (var theta = 0; theta < 6.28; theta += 0.01) {
+   x = r * Math.sin(theta) + 100
+   y = r * Math.cos(theta) + 100
+   dot(x,y,'black')
+ }
+
+ 
+  //实心矩形
+  for (y = 150; y < 200; y++){
+    for (x = 150; x < 200; x++) {
+      dot(x,y,'black')
+    } 
+  }
+  
+  //色域
+  for (y = 200; y < 250; y++){
+    var g = 255 - (y - 200) /50 * 256
+    for (x = 200; x < 250; x++) {
+      var b = (x - 200) /50 * 256
+      dot(x,y,'rgb(255,' + g + ',' + b + ')')
+    } 
+  }  
+  
+</script>
+</html>
