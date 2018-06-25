@@ -794,6 +794,254 @@
     bounceH = bounceH * 0.5
     console.log(sum.toFixed(4) + ' ' + bounceH.toFixed(7))
   </script>
+
+  <script id="sort" sample-input="4 1 7" sample-output="1 4 7" comment="输入三个数，把此三个数按升序输出" type="xxxx">
+    var a = Number(prompt('请输入第一个数'))
+    var b = Number(prompt('请输入第二个数'))
+    var c = Number(prompt('请输入第三个数'))
+    var m = 0
+    if (b < a) {
+      m = a
+      a = b
+      b = m
+    }
+
+    if (c < a) {
+      m = a
+      a = c
+      c = m
+    }
+
+    if (c < b) {
+      m = b
+      b = c
+      c = m
+    }
+    console.log(a,b,c)
+  
+</script>
+<script id="narcissistic " sample-input="153" sample-output="YES" comment="判断一个数是否为水仙花数" type="xxxx">
+  var n = Number(prompt('请输入一个三位数'))
+  var ge = n % 10
+  var shi = Math.floor(n / 10) % 10
+  var bai = Math.floor(n / 100) % 10
+  if (n === ge ** 3 + shi ** 3 + bai ** 3) {
+    console.log('YES')
+   }else {
+    console.log('NO')
+   } 
+</script>
+<script id="narcissistics" sample-input="" sample-output="" comment="找出100到10000以内所有的水仙花数" type="xxxx">
+  var counter = 0
+    for (var i = 100; i <= 10000 ; i++) {
+      if(i < 1000){
+        var ge = i % 10
+        var shi = Math.floor(i / 10) % 10
+        var bai = Math.floor(i / 100) % 10
+        if (i === ge ** 3 + shi ** 3 + bai ** 3) {
+          counter++
+          console.log(i)
+        }
+      }else if (i < 10000) {
+        ge = i % 10
+        shi = Math.floor(i / 10) % 10
+        bai = Math.floor(i / 100) % 10
+        var qian = Math.floor(i / 1000) % 10
+        if (i === ge ** 4 + shi ** 4 + bai ** 4 + qian ** 4) {
+          counter++
+          console.log(i)
+        }
+      }else if (i === 10000) {
+        if (i ===1 ** 6) {
+          counter++
+          console.log(i)
+        }
+      }      
+    }
+</script>
+<script id="palindrom" sample-input="12321" sample-output="YES" comment="判断一个非负整数是否为回文数字" type="xxxx">
+  var n = Number(prompt('请输入一个非负整数'))
+  var div = 1
+  if (n < 10) {
+    console.log('YES')
+  }else {
+    while(Math.floor(n / div) >= 10){
+    div *= 10
+    }
+    while (n !== 0){
+      var l = Math.floor(n / div)
+      var r = Math.floor(n % 10)
+      if (l !== r) {
+        console.log('NO')
+        break;
+      }else{
+        n = Math.floor((n % div) / 10)
+        div /= 100        
+      }     
+    }
+    if (n === 0) {
+      console.log('YES')
+    } 
+  }
+</script>
+<script id="weekday" sample-input="2018 6" sample-output="5" comment="输入年份与月份，给出该年该月的第一天是星期几" type="xxxx">
+  var y = Number(prompt('请输入一个2000年以后的年份'))
+  var m = Number(prompt('请输入月份'))
+  var month1 = [31,28,31,30,31,30,31,31,30,31,30,31]
+  var month2 = [31,29,31,30,31,30,31,31,30,31,30,31]
+  var sumBefore = 0
+  var sumAfter = 0
+  var sum = 0
+    //计算距离2000前几年的总天数
+    for (var i = 2000; i < y; i++) {
+      if (((i % 4 === 0) && (i % 100 !== 0)) || (i % 400 === 0)) {
+        sumBefore += 366
+      }else{
+      sumBefore += 365 
+      }
+    } 
+
+    //计算当年已过总天数
+    for (var j = 0; j < (m-1); j++) {
+      if (((y % 4 === 0) && (y % 100 !== 0)) || (y % 400 === 0)){
+       sumAfter += month2[j]     
+      }else {
+        sumAfter += month1[j]
+      }
+    }
+   //计算总天数
+   sum = sumBefore + sumAfter
+   var a = (sum + 6) % 7 
+   console.log(a) 
+
+</script>
+<script id="complete-number" sample-input="6" sample-output="YES" comment="判断一个数是否为完全数" type="xxxx">
+  var n = Number(prompt('请输入一个正整数'))
+  var sum = 0
+  for (var i = 1; i < n; i++) {
+    if (n % i === 0) {
+      sum += i
+    }
+  }
+    if (sum === n) {
+      console.log('YES')
+    }else {
+      console.log('NO')
+    }  
+</script>
+<script id="complete-numbers" sample-input="" sample-output="" comment="输出10000以内所有的完全数" type="xxxx">
+  
+  for (var n = 2; n <= 10000; n++) {
+    var sum = 1
+    for (var i = 2; i < n; i++) {
+      if (n % i === 0) {
+        sum += i
+      }
+    }
+    if (sum === n) {
+      console.log(n)
+    }
+  }
+</script>
+<script id="prime" sample-input="7" sample-output="YES" comment="判断一个数是否为素数" type="xxxx">
+  var n = Number(prompt('请输入一个正整数'))
+  if (n === 1) {
+    console.log('NO')
+  }else{
+    for (var i = 2; i < n; i++) {
+      if (n % i === 0) {
+        console.log('NO')
+        break;
+      }      
+    }
+    if (i === n) {
+      console.log('YES')
+    }
+  }
+   
+</script>
+<script id="primes" sample-input="" sample-output="" comment="输出100以内所有的素数" type="xxxx">
+  for (var n = 2; n <= 100; n++) {
+    for (var i = 2; i < n; i++) {
+      if (n % i === 0) {
+        break;
+      }      
+    }
+    if (i === n) {
+      console.log(n)
+    }
+  }
+  
+</script>
+<script id="itob" sample-input="123" sample-output="123" comment="数字转换成字符串" type="xxx">
+  var n = Number(prompt('请输入一个实数'))
+  var str = '' + n 
+  console.log(str) 
+</script>
+<script id="lcf&lcm" sample-input="12 9" sample-output="36 3" comment="给定两个数，求它们的最小公倍数和最大公约数" type="xxxx">
+  var a = Number(prompt('请输入第一个正整数'))
+  var b = Number(prompt('请输入第二个正整数'))
+  var mul = a * b
+  //求最大公约数b
+  if (a < b){
+    var m = a
+    a = b
+    b = m
+  }
+  var c = a % b
+  while (c !==0 ){
+    a = b
+    b = c
+    c = a % b
+  }
+  //最小公倍数mul
+  var mul = mul / b
+  console.log(mul,b)
+
+</script>
+<script id="7" sample-input="" sample-output="" comment="敲7" type="xxxx">
+  for (var n = 1; n < 100; n++) {
+    if (n % 7 === 0) {
+      console.log(n)
+    }else {
+      if (n < 10) {
+        if (n % 10 === 7)
+        console.log(n)
+      }else {
+        var a = Math.floor(n / 10)
+        var b = Math.floor(n % 10) 
+        if ((a === 7) || (b === 7)) {
+          console.log(n)
+        }
+      }
+    } 
+  }
+</script>
+<script id="sqrt" sample-input="2" sample-output="1.414" comment="不使用Math.sqrt，求一个非负数的平方根，至少精确到小数点后3位" type="xxxx">
+var a = Number(prompt('请输入一个非负数'))
+  var mid = a / 2 
+  if (a < 1) {
+    console.log(a.toFixed(3))
+  } else{
+      if (Math.abs(mid * mid - a) <= 0.001) {
+        console.log(mid.toFixed(3))
+      }else{
+          var l = 0
+          var r = a
+          while (Math.abs(mid * mid - a) > 0.001){    
+            if (mid * mid > a) {
+            r = mid
+            }else{
+                l = mid
+              }      
+            mid = (l + r) / 2    
+          }
+          console.log(mid.toFixed(3))
+        }
+  }
+  
+  
+</script>
 </head>
 <body>
 
