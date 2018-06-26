@@ -1017,14 +1017,22 @@
     } 
   }
 </script>
-<script id="sqrt" sample-input="2" sample-output="1.414" comment="不使用Math.sqrt，求一个非负数的平方根，至少精确到小数点后3位" type="xxxx">
+<script id="sqrt" sample-input="2" sample-output="1.414" comment="不使用Math.sqrt，求一个非负数的平方根，至少精确到小数点后3位" type="" type="xxxx">
 var a = Number(prompt('请输入一个非负数'))
+var f = 1
+  if (a < 1 ) {
+    f = 0
+    a = 1 / a
+  }
   var mid = a / 2 
-  if (a < 1) {
-    console.log(a.toFixed(3))
-  } else{
+
       if (Math.abs(mid * mid - a) <= 0.001) {
-        console.log(mid.toFixed(3))
+        if (f === 0) {
+            mid = 1 / mid
+           console.log(mid.toFixed(3)) 
+         }else{
+          console.log(mid.toFixed(3))
+         }
       }else{
           var l = 0
           var r = a
@@ -1036,9 +1044,15 @@ var a = Number(prompt('请输入一个非负数'))
               }      
             mid = (l + r) / 2    
           }
+          if (f === 0) {
+            mid = 1 / mid
+           console.log(mid.toFixed(3)) 
+         }else{
           console.log(mid.toFixed(3))
+         }
+          
         }
-  }
+
   
   
 </script>
