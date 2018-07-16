@@ -15,5 +15,16 @@ var shipinting = {
     }
     return array
   },
+  difference: function(array, a) {
+    var map = []
+    var res = []
+    for (var i = 0; i < a.length; i++) {
+      map[a[i]] = 1
+    }
+    for (i = 0; i < array.length; i++) {
+      if (!map[array[i]]) res.push(array[i])
+    }
+    return res    
+  },
 
 }
