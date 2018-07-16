@@ -30,5 +30,10 @@ var shipinting = {
     }
   return res    
   },
+  unary: function(f) {
+    return function(value) {
+      return f(value)
+    }
+  }, 
 
 }
