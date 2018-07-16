@@ -36,9 +36,13 @@ var shipinting = {
     }
   },
   ary: function(f,n) {
-    return function(a){
-      a = a.slice(0,n)
-      return f(...a)
+    return function(...args){
+      var val = args[0]
+      for (var i = 1; i < args.length; i++) {
+        val = val.concat(args[i])
+      }
+      val = val.slice(0,n)
+      return f(...val)
     }
   },
   negate: function(f) {
