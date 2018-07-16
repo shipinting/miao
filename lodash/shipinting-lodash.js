@@ -40,6 +40,11 @@ var shipinting = {
       a = a.slice(0,n)
       return f(...a)
     }
-  }, 
+  },
+  negate: function(f) {
+    return function(...args) {
+      return !f(...args)
+    }
+  } 
 
 }
