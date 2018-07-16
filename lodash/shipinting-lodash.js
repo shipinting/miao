@@ -34,6 +34,12 @@ var shipinting = {
     return function(value) {
       return f(value)
     }
+  },
+  ary: function(f,n) {
+    return function(a){
+      a = a.slice(0,n)
+      return f(...a)
+    }
   }, 
 
 }
