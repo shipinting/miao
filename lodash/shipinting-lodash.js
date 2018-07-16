@@ -49,6 +49,19 @@ var shipinting = {
     return function(...args) {
       return !f(...args)
     }
-  } 
+  },
+  inRange: function(number, start, end) {
+    if (arguments.length < 3) {
+      end = start
+      start = 0
+    }
+    if (start > end) {
+      var t = start
+      start = end
+      end = t
+    }
+    if (number >= start && number < end) return true
+    return false  
+  },
 
 }
