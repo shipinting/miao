@@ -15,16 +15,20 @@ var shipinting = {
     }
     return array
   },
-  difference: function(array, a) {
+  difference: function(array, ...values) {
     var map = []
+    var val = values[0]
     var res = []
-    for (var i = 0; i < a.length; i++) {
-      map[a[i]] = 1
+    for (var i = 1; i < values.length; i++) {
+      val = val.concat(values[i])
+    }
+    for (i = 0; i < val.length; i++) {
+      map[val[i]] = 1
     }
     for (i = 0; i < array.length; i++) {
       if (!map[array[i]]) res.push(array[i])
     }
-    return res    
+  return res    
   },
 
 }
