@@ -70,7 +70,8 @@ var shipinting = {
   divide: function(dividend,divisor) {
     return dividend / divisor
   },
-  max: function(array) {
+  subtract: (minuend, subtrahend) => minuend - subtrahend
+  ,max: function(array) {
     if (array.length === 0) return undefined
     return array.reduce((result,item,index,array) => {
       return result < item ? item : result
