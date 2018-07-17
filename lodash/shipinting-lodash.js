@@ -90,10 +90,15 @@ var shipinting = {
   differenceWith: function(array,values,comparator) {
     var res = []
     return array.forEach(item => {
-      if (!comparator(values,item)) res.push(item)
-        return res
+      if (!comparator(values,item)) res.push(item)        
     })
+    return res
+  },
+  drop: function(array, n) {
+    if (n === null) n = 1
+    return array.slice(n)
   }
+  
 
 
 }
