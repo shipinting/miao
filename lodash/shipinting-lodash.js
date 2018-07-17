@@ -108,7 +108,15 @@ var shipinting = {
         array[i] = value
       }
     return array
+  },
+  indexOf: (array, value, fromIndex) => {
+    fromIndex = fromIndex || 0
+    for (var i = fromIndex; i < array.length; i++) {
+      if (array[i] === value) return i
+    }
+    return -1
   }
+  
   
 
 
