@@ -71,15 +71,21 @@ var shipinting = {
     return dividend / divisor
   },
   max: function(array) {
-    return array.reduce(function(result,item,index,array){
+    if (array.length === 0) return null
+    return array.reduce((result,item,index,array) => {
       return result < item ? item : result
     },-Infinity)
   },
   min: function(array) {
-    return array.reduce(function(result,item,index,array){
+    return array.reduce((result,item,index,array) => {
       return result > item ? item : result
     },Infinity)
-  }
+  },
+  sum: function(array) {
+    return array.reduce((result,item,index,array) => {
+      return result + item
+    },0)
+  },
 
 
 }
