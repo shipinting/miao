@@ -98,6 +98,9 @@ var shipinting = {
     if (n === undefined) n = 1
     if (array.length <= n) return [] 
     return array.slice(0,array.length - n)
+  },
+  dropRightWhile: (array, predicate) => {
+    return array.filter(item => !predicate(item))
   }
   
 
