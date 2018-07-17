@@ -99,6 +99,14 @@ var shipinting = {
     if (array.length <= n) return [] 
     return array.slice(0,array.length - n)
   },
+  fill: (array, value, start, end) => {
+    start = start || 0
+    if (end === undefined) end = array.length
+    for (var i = start; i < end; i++) {
+        array[i] = value
+      }
+    return array
+  }
   
 
 
