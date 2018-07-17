@@ -88,15 +88,15 @@ var shipinting = {
     },0)
   },
   differenceWith: function(array,values,comparator) {
-    var res = []
-    return array.forEach(item => {
-      if (!comparator(values,item)) res.push(item)        
-    })
-    return res
+    return array.filter(item => values.every(val => !comparator(item,val)))
   },
   drop: function(array, n) {
-    if (n === null) n = 1
+    if (n === undefined) n = 1
     return array.slice(n)
+  },
+  dropRight: function(array, n) {
+    if (n === null) n = 1
+    return array.slice(0,array.length - n)
   }
   
 
