@@ -74,6 +74,11 @@ var shipinting = {
     return array.reduce(function(result,item,index,array){
       return result < item ? item : result
     },-Infinity)
+  },
+  min: function(array) {
+    return array.reduce(function(result,item,index,array){
+      return result > item ? item : result
+    },Infinity)
   }
 
 
