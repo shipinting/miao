@@ -67,6 +67,14 @@ var shipinting = {
   add: function(a,b) {
     return a + b
   },
+  divide: function(dividend,divisor) {
+    return dividend / divisor
+  },
+  max: function(array) {
+    return array.reduce(function(result,item,index,array){
+      return result < item ? item : result
+    },-Infinity)
+  }
 
 
 }
