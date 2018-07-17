@@ -87,6 +87,13 @@ var shipinting = {
       return result + item
     },0)
   },
+  differenceWith: function(array,values,comparator) {
+    var res = []
+    return array.forEach(item => {
+      if (!comparator(values,item)) res.push(item)
+        return res
+    })
+  }
 
 
 }
