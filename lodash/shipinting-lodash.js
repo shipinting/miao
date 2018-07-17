@@ -37,6 +37,7 @@ var shipinting = {
   },
   ary: function(f,n) {
     return function(...args){
+      if (args.length === 0) return f()
       var val = args[0]
       for (var i = 1; i < args.length; i++) {
         val = val.concat(args[i])
@@ -63,5 +64,9 @@ var shipinting = {
     if (number >= start && number < end) return true
     return false  
   },
+  add: function(a,b) {
+    return a + b
+  },
+
 
 }
