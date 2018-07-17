@@ -95,7 +95,7 @@ var shipinting = {
     return array.slice(n)
   },
   dropRight: function(array, n) {
-    if (n === null) n = 1
+    if (n === undefined) n = 1
     return array.slice(0,array.length - n)
   }
   
