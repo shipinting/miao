@@ -162,20 +162,7 @@ var shipinting = {
       return result
     },[])
   }
-  ,property: path => {
-    if (typeof path === 'string') var a = path.split('.')
-    return function(obj){
-      var res = []
-      for (var i of obj) {
-        var n = i
-        for (var j of a) {
-          n = n[j]
-        }
-      res.push(n)
-      }
-      return res
-    }    
-  }
+  ,property: propname => obj => obj[propname]
 
   
   
