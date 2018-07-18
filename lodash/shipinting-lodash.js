@@ -117,7 +117,30 @@ var shipinting = {
     return -1
   },
   flatten: array => [].concat(...array)
-  
+  ,flattenDeep: array => {
+    return array.reduce((result,item) => {
+      if (!Array.isArray(item)) {
+        result = [...result,item]
+      }else{
+        var temp = shipinting.flattenDeep(item)
+        result = [...result,...temp]
+      }      
+      return result   
+    },[])
+  }
+  ,flattenDepth: (array, depth) => {
+    if (depth === 0) return array.slice()
+    depth = depth || 1
+    return array.reduce((result,item) => {      
+      if (!Array.isArray(item)) {
+        result = [...result,item]
+      }else{
+        var temp = shipinting.flattenDepth(item, depth - 1)
+        result = [...result,...temp]
+      }
+      return result
+    },[])
+  }
   
   
 
