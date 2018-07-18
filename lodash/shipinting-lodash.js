@@ -115,7 +115,9 @@ var shipinting = {
       if (array[i] === value) return i
     }
     return -1
-  }
+  },
+  flatten: array => [].concat(...array)
+  
   
   
 
