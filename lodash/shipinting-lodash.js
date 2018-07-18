@@ -31,14 +31,14 @@ var shipinting = {
   return res    
   },
   differenceBy: (array, values, iteratee) => {
-    if (typeof iteratee === 'function') {
-      var res = []
-      var map = []
+    var res = []
+    var map = []
+    if (typeof iteratee === 'function') {      
       for (var i of values) {
         map[iteratee(i)] = 1
       }
       for (var j of array) {
-        if (!map[j]) res.push(j)
+        if (!map[iteratee(j)]) res.push(j)
       }
     return res
     }else{
@@ -46,7 +46,7 @@ var shipinting = {
         map[i[iteratee]] = 1
       }
       for (var j of array) {
-        if (!map[j]) res.push(j)
+        if (!map[j[iteratee]]) res.push(j)
       }
     return res
     }
