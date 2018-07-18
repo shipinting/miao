@@ -55,18 +55,7 @@ var shipinting = {
     return function(value) {
       return f(value)
     }
-  },
-  ary: function(f,n) {
-    return function(...args){
-      if (args.length === 0) return f()
-      var val = args[0]
-      for (var i = 1; i < args.length; i++) {
-        val = val.concat(args[i])
-      }
-      val = val.slice(0,n)
-      return f(...val)
-    }
-  },
+  },  
   negate: function(f) {
     return function(...args) {
       return !f(...args)
@@ -163,6 +152,7 @@ var shipinting = {
     },[])
   }
   ,property: propname => obj => obj[propname]
+  ,identity: value => value
 
   
   
