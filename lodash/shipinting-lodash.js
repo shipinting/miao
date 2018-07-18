@@ -30,27 +30,7 @@ var shipinting = {
     }
   return res    
   },
-  differenceBy: (array, values, iteratee) => {
-    if (typeOf iteratee === 'function') {
-      var res = []
-      var map = []
-      for (var i of values) {
-        map[iteratee(i)] = 1
-      }
-      for (var j of array) {
-        if (!map[j]) res.push(j)
-      }
-    return res
-    }else{
-      for (var i of values) {
-        map[i[iteratee]] = 1
-      }
-      for (var j of array) {
-        if (!map[j]) res.push(j)
-      }
-    return res
-    }
-  },
+  
   unary: function(f) {
     return function(value) {
       return f(value)
