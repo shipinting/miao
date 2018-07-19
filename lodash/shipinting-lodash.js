@@ -5,8 +5,8 @@ var shipinting = {
       res.push(array.slice(i,i + size))
     }
     return res
-  },
-  compact: function(array) {
+  }
+  ,compact: function(array) {
     for (var i = 0; i < array.length; i++) {
       if (!array[i]) {
         array.splice(i,1)
@@ -14,8 +14,8 @@ var shipinting = {
       }
     }
     return array
-  },
-  difference: function(array, ...values) {
+  }
+  ,difference: function(array, ...values) {
     var map = []
     var val = values[0]
     var res = []
@@ -29,8 +29,8 @@ var shipinting = {
       if (!map[array[i]]) res.push(array[i])
     }
   return res    
-  },
-  differenceBy: (array, values, iteratee) => {
+  }
+  ,differenceBy: (array, values, iteratee) => {
     var res = []
     var map = []
     if (typeof iteratee === 'function') {      
@@ -50,13 +50,13 @@ var shipinting = {
       }
     return res
     }
-  },
-  unary: function(f) {
+  }
+  ,unary: function(f) {
     return function(value) {
       return f(value)
     }
-  },
-  ary: (func, n=func.length) => {
+  }
+  ,ary: (func, n=func.length) => {
     return function(...args) {
       return func(...args.slice(0,n))
     }
@@ -65,8 +65,8 @@ var shipinting = {
     return function(...args) {
       return !f(...args)
     }
-  },
-  inRange: function(number, start, end) {
+  }
+  ,inRange: function(number, start, end) {
     if (arguments.length < 3) {
       end = start
       start = 0
@@ -78,60 +78,60 @@ var shipinting = {
     }
     if (number >= start && number < end) return true
     return false  
-  },
-  add: function(a,b) {
+  }
+  ,add: function(a,b) {
     return a + b
-  },
-  divide: function(dividend,divisor) {
+  }
+  ,divide: function(dividend,divisor) {
     return dividend / divisor
-  },
-  subtract: (minuend, subtrahend) => minuend - subtrahend
+  }
+  ,subtract: (minuend, subtrahend) => minuend - subtrahend
   ,multiply: (multiplier, multiplicand) => multiplier * multiplicand  
   ,max: function(array) {
     if (array.length === 0) return undefined
     return array.reduce((result,item,index,array) => {
       return result < item ? item : result
     },-Infinity)
-  },
-  min: function(array) {
+  }
+  ,min: function(array) {
     if (array.length === 0) return undefined
     return array.reduce((result,item,index,array) => {
       return result > item ? item : result
     },Infinity)
-  },
-  sum: function(array) {
+  }
+  ,sum: function(array) {
     return array.reduce((result,item,index,array) => {
       return result + item
     },0)
-  },
-  differenceWith: function(array,values,comparator) {
+  }
+  ,differenceWith: function(array,values,comparator) {
     return array.filter(item => values.every(val => !comparator(item,val)))
-  },
-  drop: function(array, n) {
+  }
+  ,drop: function(array, n) {
     if (n === undefined) n = 1
     return array.slice(n)
-  },
-  dropRight: function(array, n) {
+  }
+  ,dropRight: function(array, n) {
     if (n === undefined) n = 1
     if (array.length <= n) return [] 
     return array.slice(0,array.length - n)
-  },
-  fill: (array, value, start, end) => {
+  }
+  ,fill: (array, value, start, end) => {
     start = start || 0
     if (end === undefined) end = array.length
     for (var i = start; i < end; i++) {
         array[i] = value
       }
     return array
-  },
-  indexOf: (array, value, fromIndex) => {
+  }
+  ,indexOf: (array, value, fromIndex) => {
     fromIndex = fromIndex || 0
     for (var i = fromIndex; i < array.length; i++) {
       if (array[i] === value) return i
     }
     return -1
-  },
-  flatten: array => [].concat(...array)
+  }
+  ,flatten: array => [].concat(...array)
   ,flattenDeep: array => {
     return array.reduce((result,item) => {
       if (!Array.isArray(item)) {
@@ -158,6 +158,7 @@ var shipinting = {
   }
   ,property: propname => obj => obj[propname]
   ,identity: value => value
+  
 
   
   
