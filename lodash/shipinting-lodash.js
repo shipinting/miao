@@ -159,17 +159,23 @@ var shipinting = {
   ,property: propname => obj => obj[propname]
   ,identity: value => value
   ,dropWhile: (array, predicate=_.identity) => {
-    predicate = iteratee(predicate)
+    predicate = this.iteratee(predicate)
     for (var i = 0; i < array.length; i++) {
       if (!predicate(array[i])) return array.slice(i)      
     }
   }
   ,dropRightWhile: (array, predicate=_.identity) => {
-    predicate = iteratee(predicate)
+    predicate = this.iteratee(predicate)
     for (var i = array.length - 1; i >= 0; i--) {
       if (!predicate(array[i])) return array.slice(0,i + 1)      
     }
   }
+  ,iteratee: (predicate = _.identity) => {
+      if (typeof func === 'function') return predicate   
+      if (typeof func === 'string')   return _.property(predicate)
+      if (typeof func === 'object')   return _.matches(predicate)
+      if (Array.isArray(predicate))   return _.matchesProperty(predicate)        
+    }
 
 
   
