@@ -61,7 +61,7 @@ var shipinting = {
       return func(...args.slice(0,n))
     }
   }
-  negate: function(f) {
+  ,negate: function(f) {
     return function(...args) {
       return !f(...args)
     }
@@ -158,7 +158,18 @@ var shipinting = {
   }
   ,property: propname => obj => obj[propname]
   ,identity: value => value
-  
+  ,iteratee:(func=_.identity) => {
+    return function(obj){
+      if (typeof func === 'string') {
+        return obj.reduce(result,item){
+          result.push(item[func])
+          return result
+        }
+      }else if (typeof func === 'function') {
+        return obj.filter(obj => )
+      }
+    }
+  }
 
   
   
