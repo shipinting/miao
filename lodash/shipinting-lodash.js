@@ -158,7 +158,7 @@ var shipinting = {
   }
   ,property: propname => obj => obj[propname]
   ,identity: value => value
-  ,iteratee:(predicate) => {
+  ,iteratee: predicate => {
       if (typeof func === 'function') return predicate   
       if (typeof func === 'string')   return _.property(predicate)
       if (typeof func === 'object')   return _.matches(predicate)
