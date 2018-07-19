@@ -165,9 +165,9 @@ var shipinting = {
       if (Array.isArray(predicate))   return _.matchesProperty(predicate)        
     }
   ,dropWhile: (array, predicate=_.identity) => {
-    var func = shipinting.iteratee(predicate)
+    var f = shipinting.iteratee(predicate)
     for (var i = 0; i < array.length; i++) {
-      if (!func(array[i])) return array.slice(i)      
+      if (!f(array[i])) return array.slice(i)      
     }
   }
   ,dropRightWhile: (array, predicate=_.identity) => {
