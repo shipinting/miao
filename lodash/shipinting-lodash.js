@@ -158,18 +158,13 @@ var shipinting = {
   }
   ,property: propname => obj => obj[propname]
   ,identity: value => value
-  ,iteratee:(func=_.identity) => {
-    return function(obj){
-      if (typeof func === 'string') {
-        return obj.reduce(result,item){
-          result.push(item[func])
-          return result
-        }
-      }else if (typeof func === 'function') {
-        return obj.filter(obj => )
-      }
+  ,iteratee:(predicate) => {
+      if (typeof func === 'function') return predicate   
+      if (typeof func === 'string') return _.property(predicate)
+      if (typeof func === 'object')  return _.matches(predicate)
+      if (Array.isArray(predicate)) return _.matchesProperty(predicate)        
     }
-  }
+
 
   
   
