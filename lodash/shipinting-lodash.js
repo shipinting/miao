@@ -165,25 +165,32 @@ var shipinting = {
       if (Array.isArray(predicate))   return _.matchesProperty(predicate)        
     }
   ,dropWhile: (array, predicate=_.identity) => {
-    predicate = shipinting.iteratee(predicate)
+    var func = shipinting.iteratee(predicate)
     for (var i = 0; i < array.length; i++) {
-      if (!predicate(array[i])) return array.slice(i)      
+      if (!func(array[i])) return array.slice(i)      
     }
   }
   ,dropRightWhile: (array, predicate=_.identity) => {
-    predicate = shipinting.iteratee(predicate)
+    var func = shipinting.iteratee(predicate)
     for (var i = array.length - 1; i >= 0; i--) {
-      if (!predicate(array[i])) return array.slice(0,i + 1)      
+      if (!func(array[i])) return array.slice(0,i + 1)      
     }
   }  
   ,groupBy: (array, predicate=_.identity) => {
-    predicate = shipinting.iteratee(predicate)
+    var func = shipinting.iteratee(predicate)
     return array.reduce((result,item) => {
-      var key = predicate(item)
+      var key = func(item)
       if (key in result) result[key].push(item)
       else result[key] = [item]
       return result  
     },{})
+  }
+  ,keyBy: (ary, key) => {
+    var obj = {}
+    for (var item of ary) {
+      obj[item[key]] = item
+    }
+    return obj
   }
 
 
