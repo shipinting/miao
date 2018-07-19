@@ -160,9 +160,9 @@ var shipinting = {
   ,identity: value => value
   ,iteratee:(predicate) => {
       if (typeof func === 'function') return predicate   
-      if (typeof func === 'string') return _.property(predicate)
-      if (typeof func === 'object')  return _.matches(predicate)
-      if (Array.isArray(predicate)) return _.matchesProperty(predicate)        
+      if (typeof func === 'string')   return _.property(predicate)
+      if (typeof func === 'object')   return _.matches(predicate)
+      if (Array.isArray(predicate))   return _.matchesProperty(predicate)        
     }
 
 
