@@ -158,7 +158,12 @@ var shipinting = {
   }
   ,property: propname => obj => obj[propname]
   ,identity: value => value
-  
+  ,dropWhile: (array, predicate=_.identity) => {
+    predicate = iteratee(predicate)
+    for (var i = 0; i < array.length; i++) {
+      if (!predicate(array[i])) return array.slice(i)      
+    }
+  }
 
 
   
