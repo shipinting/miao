@@ -164,6 +164,12 @@ var shipinting = {
       if (!predicate(array[i])) return array.slice(i)      
     }
   }
+  ,dropRightWhile: (array, predicate=_.identity) => {
+    predicate = iteratee(predicate)
+    for (var i = array.length - 1; i >= 0; i--) {
+      if (!predicate(array[i])) return array.slice(0,i + 1)      
+    }
+  }
 
 
   
