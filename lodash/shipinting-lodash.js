@@ -55,7 +55,12 @@ var shipinting = {
     return function(value) {
       return f(value)
     }
-  },  
+  },
+  ary: (func, n=func.length) => {
+    return function(...args) {
+      return func(...args.slice(0,n))
+    }
+  }
   negate: function(f) {
     return function(...args) {
       return !f(...args)
