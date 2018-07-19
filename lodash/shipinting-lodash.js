@@ -159,9 +159,9 @@ var shipinting = {
   ,property: propname => obj => obj[propname]
   ,identity: value => value
   ,iteratee: (predicate = _.identity) => {
-      if (typeof func === 'function') return predicate   
-      if (typeof func === 'string')   return _.property(predicate)
-      if (typeof func === 'object')   return _.matches(predicate)
+      if (typeof predicate === 'function') return predicate   
+      if (typeof predicate === 'string')   return _.property(predicate)
+      if (typeof predicate === 'object')   return _.matches(predicate)
       if (Array.isArray(predicate))   return _.matchesProperty(predicate)        
     }
   ,dropWhile: (array, predicate=_.identity) => {
