@@ -160,14 +160,22 @@ var shipinting = {
   ,identity: value => value
   ,iteratee: (predicate = _.identity) => {
       if (typeof predicate === 'function') return predicate   
-      if (typeof predicate === 'string')   return _.property(predicate)
-      if (typeof predicate === 'object')   return _.matches(predicate)
-      if (Array.isArray(predicate))   return _.matchesProperty(predicate)        
+      if (typeof predicate === 'string')   return _.property(predicate)      
+      if (Array.isArray(predicate))   return _.matchesProperty(predicate)
+      if (typeof predicate === 'object')   return shipinting.matches(predicate)        
     }
+  ,matches: src => {
+    return function(obj) {
+      for (var key in src) {
+        if (src[key] !== obj[key]) return false
+      }
+    return true
+    }
+  }
   ,dropWhile: (array, predicate=_.identity) => {
-    var f = shipinting.iteratee(predicate)
+    var func = shipinting.iteratee(predicate)
     for (var i = 0; i < array.length; i++) {
-      if (!f(array[i])) return array.slice(i)      
+      if (!func(array[i])) return array.slice(i)      
     }
   }
   ,dropRightWhile: (array, predicate=_.identity) => {
