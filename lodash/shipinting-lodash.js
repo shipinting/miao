@@ -207,6 +207,13 @@ var shipinting = {
     }
     return obj
   }
+  ,every: (ary, predicate) => {
+   var func = shipinting.iteratee(predicate)
+   for (var i = 0; i < ary.length; i++) {
+     if (!func(ary[i])) return false        
+   }
+    return true
+  }
 
 
   
