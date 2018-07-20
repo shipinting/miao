@@ -160,8 +160,8 @@ var shipinting = {
   ,identity: value => value
   ,iteratee: (predicate = _.identity) => {
       if (typeof predicate === 'function') return predicate   
-      if (typeof predicate === 'string')   return _.property(predicate)      
-      if (Array.isArray(predicate))   return _.matchesProperty(predicate)
+      if (typeof predicate === 'string')   return shipinting.property(predicate)      
+      if (Array.isArray(predicate))   return shipinting.matchesProperty(predicate)
       if (typeof predicate === 'object')   return shipinting.matches(predicate)        
     }
   ,matches: src => {
@@ -170,6 +170,12 @@ var shipinting = {
         if (src[key] !== obj[key]) return false
       }
     return true
+    }
+  }
+  ,matchesProperty: (predicate) => {
+    return function(obj) {
+        if (obj[predicate[0]] === predicate[1]) return true
+    return false
     }
   }
   ,dropWhile: (array, predicate=_.identity) => {
