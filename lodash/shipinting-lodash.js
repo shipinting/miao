@@ -207,14 +207,14 @@ var shipinting = {
     }
     return obj
   }
-  ,every: (ary, predicatee = shipinting.identity) => {
+  ,every: (ary, predicate = shipinting.identity) => {
    var func = shipinting.iteratee(predicate)
    for (var i = 0; i < ary.length; i++) {
      if (!func(ary[i])) return false        
    }
     return true
   }
-  ,some: (ary, predicatee = shipinting.identity) => {
+  ,some: (ary, predicate = shipinting.identity) => {
    var func = shipinting.iteratee(predicate)
    for (var i = 0; i < ary.length; i++) {
      if (func(ary[i])) return true        
