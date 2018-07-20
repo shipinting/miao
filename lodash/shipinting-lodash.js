@@ -250,6 +250,12 @@ var shipinting = {
     })
     return initialValue
   }
+  ,sumBy: (ary, iteratee=_.identity) => {
+    var func = shipinting.iteratee(iteratee)
+    return ary.reduce((result,item) => {
+      return func(result) + func(item)
+    })
+  }
 
 
   
