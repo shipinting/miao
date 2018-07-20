@@ -221,8 +221,34 @@ var shipinting = {
    }
     return false
   }
-  ,find: (ary, predicate=_.identity, fromIndex=0) => {
+  ,forEach: (ary, iteratee=_.identity) => {
+    var func = shipinting.iteratee(iteratee)
+    for (var i = 0; i < ary.length; i++) {
+      func(ary[i])
+    }
+  }
+  ,filter: (ary, predicate = shipinting.identity) => {
     var func = shipinting.iteratee(predicate)
+    var res = []
+    ary.forEach(item => {
+      if (func(item)) res.push(item)
+    })
+    return res
+  }
+  ,map: (ary, iteratee=_.identity) => {
+    var func = shipinting.iteratee(iteratee)
+    var map = []
+    ary.forEach(item => {
+      map.push(func(item))
+    })
+    return map
+  }
+  ,reduce: (ary, iteratee=_.identity, initialValue) => {
+    var func = shipinting.iteratee(iteratee)
+    ary.forEach(item => {
+      initialValue = func(initialValue,item)
+    })
+    return initialValue
   }
 
 
