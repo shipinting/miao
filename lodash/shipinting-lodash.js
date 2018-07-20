@@ -199,10 +199,11 @@ var shipinting = {
       return result  
     },{})
   }
-  ,keyBy: (ary, key) => {
+  ,keyBy: (ary, predicate) => {
+    var func = shipinting.iteratee(predicate)
     var obj = {}
     for (var item of ary) {
-      obj[item[key]] = item
+      obj[func(item)] = item
     }
     return obj
   }
