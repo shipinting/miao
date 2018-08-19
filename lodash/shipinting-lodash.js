@@ -30,23 +30,24 @@ var shipinting = {
     }
   return res    
   }
-  ,differenceBy: (array, values, iteratee) => {
+  ,differenceBy: (array, ...values) => {
     var res = []
     var map = []
+    var iteratee = values[values.length - 1]
     if (typeof iteratee === 'function') {      
-      for (var i of values) {
-        map[iteratee(i)] = 1
+      for (var i = 0; i < values.length - 1; i++) {
+        map[iteratee(values[i])] = 1
       }
       for (var j of array) {
         if (!map[iteratee(j)]) res.push(j)
       }
     return res
     }else{
-      for (var i of values) {
-        map[i[iteratee]] = 1
-      }
+      for (var k = 0; k < values.length - 1; k++) {
+        map[values[k]] = 1
+      }      
       for (var j of array) {
-        if (!map[j[iteratee]]) res.push(j)
+        if (!map[values[j]]) res.push(j)
       }
     return res
     }
