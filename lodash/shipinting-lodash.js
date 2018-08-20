@@ -272,7 +272,15 @@ var shipinting = {
     return res
   }
   ,head: array => array[0]
-  
+  ,initial: array => array.slice(0,array.length - 1)
+  ,intersection: (...arrays) => {
+    return arrays[0].reduce((result,item) => {
+      if (arrays[1].indexOf(item) > -1) {
+        result.push(item)
+      }
+      return result
+    },[])
+  }
 
 
   
