@@ -264,6 +264,13 @@ var shipinting = {
     }
     return -1
   }
+  ,fromPairs: (pairs) => {
+    var res = {}
+    for (p of pairs) {
+      res[p[0]] = p[1]
+    }
+    return res
+  }
 
 
   
