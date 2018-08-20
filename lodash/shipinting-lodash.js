@@ -31,36 +31,15 @@ var shipinting = {
   return res    
   }
   ,differenceBy: (array, ...values) => {
-    var res = []
-    var map = []
-    var iteratee = values[values.length - 1]
-    if (typeof iteratee === 'function') { 
-      values.pop()     
-      for (var i of values) {
-        map[iteratee(i)] = 1
-      }
-      for (var j of array) {
-        if (!map[iteratee(j)]) res.push(j)
-      }
-    return res
-    }else if (typeof iteratee === 'string') {
-      values.pop()
-      for (var i of values) {
-        map[i[iteratee]] = 1
-      }
-      for (var j of array) {
-        if (!map[j[iteratee]]) res.push(j)
-      }
-    return res
+    values = shipinting.flattenDeep(values)
+    var iteratee = values[values.length - 1],func
+    if (typeof iteratee === 'string' || typeof iteratee === 'function') {
+      func = shipinting.iteratee(iteratee)
     }else{
-      for (var i of values) {
-        map[i] = 1
-      }
-      for (var j of array) {
-        if (!map[j]) res.push(j)
-      }
-    return res
-    }
+      func = shipinting.identity
+    }    
+    var map = values.map(val => func(val))
+    return array.filter(val => !map.includes(func(val)))    
   }
   ,unary: function(f) {
     return function(value) {
