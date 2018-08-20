@@ -246,6 +246,15 @@ var shipinting = {
       return func(result) + func(item)
     })  
   }
+  ,findIndex: (array, predicate) => {
+    var func = shipinting.iteratee(predicate)
+    for (var i = 0; i < array.length; i++) {
+      if (func(array[i])) {
+        return i        
+      }
+    }
+    return -1
+  }
 
 
   
