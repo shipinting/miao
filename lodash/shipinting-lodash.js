@@ -281,6 +281,18 @@ var shipinting = {
       return result
     },[])
   }
+  ,intersectionBy: (ary,...arrays) => {
+    var iteratee = arrays.pop()
+    var func
+    if (typeof iteratee === 'function' || typeof iteratee === 'function') {
+      func = shipinting.iteratee(iteratee)
+    }else{
+      func = shipinting.identity
+    }
+    arrays = shipinting.flattenDeep(arrays)
+    var map = arrays.map(item => func(item))    
+    return ary.filter(item => map.includes(func(item)))
+  }
 
 
   
