@@ -255,6 +255,15 @@ var shipinting = {
     }
     return -1
   }
+  ,findLastIndex: (array, predicate) => {
+    var func = shipinting.iteratee(predicate)
+    for (var i = array.length - 1; i >= 0; i--) {
+      if (func(array[i])) {
+        return i        
+      }
+    }
+    return -1
+  }
 
 
   
